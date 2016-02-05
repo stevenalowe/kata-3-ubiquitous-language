@@ -1,0 +1,25 @@
+Welcome to Step 3!
+
+Implementing the new safeguards didn't take long, did it? Just a few lines of code in the boom method of the Smack class, and a new guard in the GroobleApi, right?
+
+If you put the guard code anywhere else, move it into the domain object, Smack. Why there?
+
+Because we want the domain objects to be smart, encapsulating any necessary complexity within the domain. We want the things that use the domain objects to be simple, so that it's easy to see what is happening in domain terms.
+
+We could have moved the GroobleApi outside of the Smack class and written a service/helper function to take a Smack and an Api instance, fuss and fiddle with the api on behalf of the Smack, and return a Skrinket, and if necessary in some future ultra-scaling transformation we might still do that (or not), but in the current context, there's no reason for all of the extra plumbing and scaffolding to do something on behalf of an object when that object is perfectly capable of doing the work itself.
+
+That's how domain knowledge gets embedded in the model. When we read the code of the Smack class, it's easy to see that booming a smack produces a skrinket.
+
+But there's a couple of potential issues here to notice:
+  1. we really can't test error paths because the GroobleApi is inside the Smack object and the way it is used in boom it cannot fail
+  2. the protocol for the GroobleApi is confusing
+
+The first issue is arguably an advantage of the design, not a shortcoming. The only way it could fail would be if the Api's washit flag was already on when we called Api.hit, and given the initialization of the internal GroobleApi object this situation is not possible. So that's a good thing. Except...what if we wanted to test failure modes? We'd have to do it outside of the Smack class.
+
+So there's the simple answer: create a contract test for the GroobleApi so we can test its failure modes. We don't want to complicate the Smack class to do this, nor do we want to expose the Smack object's Api field; either or these modifications make the Smack code worse, not better. But there are good reasons to have a separate contract test for the GroobleApi; in addition to allowing us to test the failure modes (which we really want to do, the engineers are insisting!), it gives us a safety net in case the GroobleApi changes in the future.
+
+So we made a mutually-beneficial agreement with the production engineers: we agreed to write contract tests for the GroobleApi, including failure modes, and they agreed to run our tests every time they change their code, and notify us if they need to make a breaking change. Yay!
+
+We also asked the engineers to rename the methods in the GroobleApi to something more in line with Suma's domain terminology, but they're not willing to do that yet. I think if we show them how much more readable and understandable it would be then they will, but we'll come back to that later.
+
+For now, just write a set of contract tests for the GroobleApi, executing all possible success and failure modes. For convenience we've provided a shell class, GroobleApiContractTests.
