@@ -1,0 +1,14 @@
+Welcome to the Dojo!
+
+Today we have as our special guest our imaginary Subject Matter Expert, Suma!
+
+Suma is the Production Manager for Grooble, Inc., an amazing new startup on a mission to Enlighten the World. Grooble, Inc. was founded by Dr. Hansh Grooble, who discovered the Grooble Factor and built the first Grooble prototype in his garage apartment. Grooble, Inc. began shipping Groobles worldwide last week and can no longer keep up with demand, so they've hired us to help them automate and track all production systems. Suma is excited to tell us all about the Groobling process:
+
+"We produce Groobles, the finest in the world, in fact the only Groobles in the world! A Grooble starts out as a blank Smack, which gets Boomed into a Skrinket. Skrinkets are Grizzled into Shiners, which are then Inspected for Worthiness. Only Worthy Shiners can become true Groobles, via our patent-pending Enlightenment process. Enlightened True Groobles are then nestled into Clumps for Parting."
+
+I know what you're thinking, "Wow, I gotta get me some of that!" or maybe even "When do they IPO and can I get in?". Right? Right?
+
+What? You don't understand what a Grooble is? Sorry, no time for more detail or a plant tour!
+
+Suma wants us to implement a smoke-test of the machine interface before lunch. All we have to do is use the GroobleApi (mock provided) to boom a smack, confirm the operation was successful, then reset for the next operation. Piece of pie^H^H^H cake!
+
