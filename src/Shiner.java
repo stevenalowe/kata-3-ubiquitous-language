@@ -10,4 +10,10 @@ public class Shiner {
     public boolean inspect() {
         return _groobleApi.inspectForWorthiness();
     }
+    public Grooble enlighten() {
+        if (_groobleApi.enlighten()) {
+            return new Grooble(this);
+        }
+        return null;
+    }
 }

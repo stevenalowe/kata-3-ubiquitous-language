@@ -1,0 +1,6 @@
+Welcome to Step 8!
+
+The good news is, the production line code worked exactly as intended. The bad news is, the software runs through the process too fast for the production line to keep up. We broke the boomer again, scratched up the grizzler, and burned out the enlightener. But no worries, the engineers have fixed it and have come up with a solution: the GroobleApi will notify us when it is ready, and when it has completed an operation. This also gives us some useful data on how long each operation takes.
+
+Take a look at the new GroobleAsynchApi, add a contract test suite for it, and change the domain classes to use it. Preferably by tomorrow, so we can ramp up production again!
+
