@@ -1,0 +1,11 @@
+Welcome to Step 4!
+
+The engineers are delighted with the contract tests, thank you! They're already running it as part of their build chain, and it caught a bug for them just this morning. They're so happy, in fact, that they're willing to take a look at changing the Grooble Api to something that makes more domain sense. Yay!
+
+Only...what should it be?
+
+If we look at how we use it, the Api.hit() method corresponds to Smack.boom(), so perhaps we should rename hit to boom?
+
+If we do that, is that enough? The rehit() method should be renamed also, and while we're at it, let's make custom exceptions.
+
+Oh, and change the version in the comments to v0.2
