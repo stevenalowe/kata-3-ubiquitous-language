@@ -6,7 +6,9 @@ import org.junit.Test;
  */
 public class SmokeTest {
     @Test
-    public void TestBoomSmack() {
-        Assert.fail("insert code here");
+    public void TestBoomSmack() throws Exception {
+        Smack smack = new Smack();
+        Skrinket skrinket = smack.Boom();
+        Assert.assertNotNull(skrinket);
     }
 }
