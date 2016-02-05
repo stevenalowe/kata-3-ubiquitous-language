@@ -15,6 +15,9 @@ public class GroobleApi implements IGroobleApi {
         if (_washit) {
             throw new Exception("hit failure");
         }
+        if (_empty) {
+            throw new Exception("empty failure");
+        }
         _washit = true;
     }
     public boolean washit() {
