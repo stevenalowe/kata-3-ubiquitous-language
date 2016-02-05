@@ -54,4 +54,9 @@ public class GroobleApiContractTests {
         //inspection is a simple pass/fail, but the mock can't fail
         Assert.assertTrue(_groobleApi.inspectForWorthiness());
     }
+    @Test
+    public void HappyPathEnlightenTest() {
+        //enlighten in mock can't fail
+        Assert.assertTrue(_groobleApi.enlighten());
+    }
 }

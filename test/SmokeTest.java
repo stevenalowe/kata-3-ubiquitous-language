@@ -28,4 +28,15 @@ public class SmokeTest {
         Assert.assertNotNull(shiner);
         Assert.assertTrue(shiner.inspect());
     }
+    @Test
+    public void TestEnlightenShiner() throws Exception {
+        Smack smack = new Smack();
+        Skrinket skrinket = smack.Boom();
+        Assert.assertNotNull(skrinket);
+        Shiner shiner = skrinket.grizzle();
+        Assert.assertNotNull(shiner);
+        Assert.assertTrue(shiner.inspect());
+        Grooble grooble = shiner.enlighten();
+        Assert.assertNotNull(grooble);
+    }
 }
