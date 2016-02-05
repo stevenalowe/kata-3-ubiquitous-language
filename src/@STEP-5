@@ -1,0 +1,8 @@
+Welcome to Step 5!
+
+The engineers agree that using boom, wasBoomed, and isEmpty makes more sense, especially when they talk to Suma! They also like the custom exceptions. Excellent work!
+
+Now that we've earned the confidence and trust not only of Suma but also the engineers, they're ready for us to build out the production line.
+
+Next step: Skrinkets are Grizzled into Shiners. The engineers already added grizzle to the GroobleApi (v0.3) for you to use. It returns true if the operation was successful. Go! And remember to update the GroobleApi contract tests!
+
