@@ -1,0 +1,38 @@
+Welcome to Step 2!
+
+Hopefully you wrote some code that looked sort of like this:
+    Smack smack = new Smack();
+    Skrinket skrinket = smack.Boom();
+and hid the GroobleApi calls inside of smack.Boom().
+
+Or equivalent; I can't see what you wrote, but the point of this is to use the domain terminology to shape your thinking, and thus the code. It's entirely possible to 'solve' this smoke-test/prototype/toy problem without using the domain terminology at all, but if we do then that knowledge is effectively lost: if our code does not talk about booming a smack to create a skrinket, its purpose is obscured.
+
+For (bad) example, we could have nominally satisfied the scope of the smoke-test by writing only:
+    GroobleApi api = new GroobleApi();
+    api.hit();
+    if (api.washit()) {
+        api.reset();
+    }
+That would have been enough to activate the (mocked) machinery, but not enough so that the next developer to look at the code would have any idea that we were booming a smack.
+
+It doesn't matter if "booming a smack" sounds silly; that's the correct terminology for this domain, and we should use it.
+
+In fact, you may have noticed that the GroobleApi has some poor name choices also; it does not talk about booming at all, we just had to assume that that's what the "hit" method did for us. It also has vague messages in generic exceptions, but we're not going to worry about that right now. Amusingly, however, because of poor name choices and naming conventions (e.g. no CamelCase), someone new to the project could read the above code as "hitting something, then washing it"! Wouldn't that be confusing?
+
+So take another look at the code you wrote; if this functional relationship is implemented
+    smack.Boom() ==> Skrinket
+then you captured the gist of the domain operation in your domain model. Congratulations!
+
+If you didn't do that, if your solution looks more like the (bad) example above, please try again.
+
+Here's a secret: domain modeling is not hard, but it does take a certain mindfulness regarding precise definition and usage of the domain terminology (aka "ubiquitous language"). We have to imagine and build our object models as things in the domain, doing what they naturally do, and then figure out how to implement it, not the other way 'round. The top-level interface to our domain model should make sense to a non-technical person familiar with the domain.
+
+Moving on...Suma is delighted with the smoke-test:
+
+ "We gave your code to one of the production engineers, who replaced the mock API with the real machine interface and ran it several times on the production line. The good news is, it worked perfectly, activating the boomer and resetting it exactly as intended. The bad news is, there was no Smack in the machine when they ran the tests, so the machine boomed itself and broke.  It's fixed now, but if we could go ahead and check the machine for a smack-in-play before hitting the boomer, that'd be great."
+
+The GroobleApi (and mock) has been updated (v0.2) to place a smack in the machine and check for a smack-in-play. I think the engineer named those functions "load" and "empty", so we have to call load to place a smack in play, and if the machine is empty then there is no smack in play so we should not boom, instead we should throw an exception.
+
+Got it? Great! Update the code to implement this new safeguard.
+
+
