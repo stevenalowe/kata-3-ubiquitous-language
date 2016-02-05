@@ -44,4 +44,9 @@ public class GroobleApiContractTests {
         Assert.assertTrue(_groobleApi.isEmpty());
         _groobleApi.boom();
     }
+    @Test
+    public void HappyPathGrizzleTest() {
+        //grizzling can't really fail
+        Assert.assertTrue(_groobleApi.grizzle());
+    }
 }
