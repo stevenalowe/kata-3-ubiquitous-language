@@ -2,35 +2,36 @@
  * GroobleApi mock for development testing
  * Copyright (c) Yesterday by Grooble, Inc.
  * All Rights Reserved But Still Friendly
- * v0.2
+ * v0.3
  */
 public class GroobleApi implements IGroobleApi {
-    private boolean _washit;
-    private boolean _empty;
+    private boolean _wasBoomed;
+    private boolean _isEmpty;
     public GroobleApi() {
-        _washit = false;
-        _empty = true;
+        _wasBoomed = false;
+        _isEmpty = true;
     }
-    public void hit() throws Exception {
-        if (_washit) {
-            throw new Exception("hit failure");
+    public void boom() throws ExceptionBoomRehit, ExceptionBoomEmpty {
+        if (_wasBoomed) {
+            throw new ExceptionBoomRehit("attempted to boom twice without reset");
         }
-        if (_empty) {
-            throw new Exception("empty failure");
+        if (_isEmpty) {
+            throw new ExceptionBoomEmpty("attempted to boom when empty");
         }
-        _washit = true;
+        _wasBoomed = true;
     }
-    public boolean washit() {
-        return _washit;
+    public boolean wasBoomed() {
+        return _wasBoomed;
     }
     public void reset() {
-        _washit = false;
-        _empty = true;
+        _wasBoomed = false;
+        _isEmpty = true;
     }
     public void load() {
-        _empty = false;
+        _isEmpty = false;
     }
-    public boolean empty() {
-        return _empty;
+    public boolean isEmpty() {
+        return _isEmpty;
     }
+    public boolean grizzle() { return true; }
 }

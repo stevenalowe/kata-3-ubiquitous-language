@@ -4,11 +4,11 @@
 public class Smack {
     private GroobleApi _groobleApi = new GroobleApi();
     public Skrinket Boom() throws Exception {
-        if (_groobleApi.empty()) {
+        if (_groobleApi.isEmpty()) {
             _groobleApi.load();
         }
-        _groobleApi.hit();
-        if (_groobleApi.washit()) {
+        _groobleApi.boom();
+        if (_groobleApi.wasBoomed()) {
             _groobleApi.reset();
             return new Skrinket(this);
         }
