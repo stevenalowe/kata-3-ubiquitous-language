@@ -2,7 +2,7 @@
  * GroobleApi mock for development testing
  * Copyright (c) Yesterday by Grooble, Inc.
  * All Rights Reserved But Still Friendly
- * v0.4
+ * v0.5
  */
 public class GroobleApi implements IGroobleApi {
     private boolean _wasBoomed;
@@ -35,4 +35,7 @@ public class GroobleApi implements IGroobleApi {
     }
     public boolean grizzle() { return true; }
     public boolean inspectForWorthiness() { return true; }
+    public boolean enlighten() {
+        return true;
+    }
 }

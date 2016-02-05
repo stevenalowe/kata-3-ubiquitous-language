@@ -49,4 +49,9 @@ public class GroobleApiContractTests {
         //grizzling can't really fail
         Assert.assertTrue(_groobleApi.grizzle());
     }
+    @Test
+    public void HappyPathInspectTest() {
+        //inspection is a simple pass/fail, but the mock can't fail
+        Assert.assertTrue(_groobleApi.inspectForWorthiness());
+    }
 }

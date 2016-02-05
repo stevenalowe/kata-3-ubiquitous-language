@@ -19,4 +19,13 @@ public class SmokeTest {
         Shiner shiner = skrinket.grizzle();
         Assert.assertNotNull(shiner);
     }
+    @Test
+    public void TestInspectShiner() throws Exception {
+        Smack smack = new Smack();
+        Skrinket skrinket = smack.Boom();
+        Assert.assertNotNull(skrinket);
+        Shiner shiner = skrinket.grizzle();
+        Assert.assertNotNull(shiner);
+        Assert.assertTrue(shiner.inspect());
+    }
 }
